@@ -19,9 +19,10 @@
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:tslint": "tslint --fix --project .",
-    "test": "run-s build test:*",
+    "test": "run-s build test:lint test:unit",
     "test:lint": "tslint --project . && prettier \"src/**/*.ts\" --list-different",
     "test:unit": "jest --coverage",
+    "test:unit:debug": "DEBUG=true jest --coverage",
     "cov": "run-s build cov:html && open-cli coverage/index.html",
     "cov:html": "jest --coverage --config=\"jest.html.config.js\"",
     "watch": "run-s clean build:main && run-p \"build:main -- -w\" \"test:unit -- --watch\"",
@@ -56,9 +57,11 @@
     "@bitjson/npm-scripts-info": "^1.0.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
+    "@eturino/ts-parse-boolean": "^1.1.0",
     "@types/inquirer": "^6.5.0",
     "@types/ioredis": "^4.14.6",
     "@types/jest": "^25.1.0",
+    "@types/uuid": "^3.4.7",
     "cz-conventional-changelog": "^3.1.0",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.1",
@@ -79,7 +82,8 @@
     "tslint-immutable": "^6.0.1",
     "typedoc": "^0.16.9",
     "typedoc-themes-color": "^0.0.10",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "uuid": "^3.4.0"
   },
   "config": {
     "commitizen": {

@@ -3,16 +3,14 @@
   "rules": {
     "interface-over-type-literal": [false],
     "variable-name": {
-      "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-leading-underscore"
-      ]
+      "options": ["ban-keywords", "check-format", "allow-leading-underscore"]
     },
     "curly": [true, "ignore-same-line"],
     // TODO: allow devDependencies only in **/*.spec.ts files:
     // waiting on https://github.com/palantir/tslint/pull/3708
     "no-implicit-dependencies": [true, "dev"],
-    "object-literal-sort-keys": [false]
+    "object-literal-sort-keys": [false],
+    "no-submodule-imports": [false],
+    "no-console": [false]
   }
 }

@@ -10,8 +10,8 @@ export type LogFn = (...args: any[]) => void;
 export type RedisDelByPatternOptions = {
   pattern: string;
   redis: Redis;
-  inBatches?: boolean;
-  batchLimit?: number;
+  withPipeline?: boolean;
+  pipelineBatchLimit?: number;
   deletionMethod: RedisDeletionMethod;
   enableLog?: boolean;
   logFn?: LogFn;

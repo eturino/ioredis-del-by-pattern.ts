@@ -10,8 +10,7 @@ export function prepareLogFn(enableLog: boolean, logFn?: LogFn): LogFn {
   if (!enableLog) return (): void => {};
   return (
     logFn ||
-    ((...args): void => {
-      // tslint:disable-next-line:no-console
+    ((...args: any[]): void => {
       console.log(...args);
     })
   );

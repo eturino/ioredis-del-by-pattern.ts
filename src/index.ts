@@ -1,6 +1,6 @@
-import { batched } from "./batched";
-import { notBatched } from "./not-batched";
 import { prepareLogFn } from "./prepare-log-fn";
+import { runWithPipeline } from "./run-with-pipeline";
+import { runWithoutPipeline } from "./run-without-pipeline";
 import { RedisDelByPatternOptions, RedisDeletionMethod } from "./types";
 
 export { LogFn, RedisDelByPatternOptions, RedisDeletionMethod } from "./types";
@@ -11,35 +11,41 @@ export { LogFn, RedisDelByPatternOptions, RedisDeletionMethod } from "./types";
  * @param redis redis client
  * @param pattern match in the redis scan stream
  * @param deletionMethod determines the usage of DEL or UNLINK commands (Unlink by default)
- * @param inBatches decide to use a pipeline to execute the commands or on each stream event
- * @param batchLimit 100 by default, in effect if `inBatches` is true
+ * @param withPipeline decide to use a pipeline to execute the commands or on each stream event
+ * @param pipelineBatchLimit 100 by default, in effect if `withPipeline` is true
  * @param enableLog if true, actions will be logged using the given logFn
  * @param logFn function to execute to log events. Defaults to (console.log)
  * @param logPrefix prefix to the logFn (defaults to `"[REDIS-DEL-BY-PATTERN] "`)
  */
-export function redisDelByPattern({
+export async function redisDelByPattern({
   pattern,
   redis,
-  inBatches,
+  withPipeline,
   enableLog,
-  batchLimit = 100,
+  pipelineBatchLimit = 100,
   deletionMethod = RedisDeletionMethod.unlink,
   logFn,
   logPrefix = "[REDIS-DEL-BY-PATTERN] "
-}: RedisDelByPatternOptions): void {
+}: RedisDelByPatternOptions): Promise<number> {
   const fn = prepareLogFn(enableLog || false, logFn);
-  if (inBatches) {
-    batched({
+  if (withPipeline) {
+    return runWithPipeline({
       pattern,
       redis,
-      batchLimit,
+      pipelineBatchLimit,
       logFn: fn,
       logPrefix,
       deletionMethod
     });
-  } else {
-    notBatched({ pattern, redis, logFn: fn, logPrefix, deletionMethod });
   }
+
+  return runWithoutPipeline({
+    pattern,
+    redis,
+    logFn: fn,
+    logPrefix,
+    deletionMethod
+  });
 }
 
 export default redisDelByPattern;
