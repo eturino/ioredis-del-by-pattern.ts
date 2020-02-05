@@ -5,9 +5,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/653fcf67de9f3bc22c84/maintainability)](https://codeclimate.com/github/eturino/ioredis-del-by-pattern/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/653fcf67de9f3bc22c84/test_coverage)](https://codeclimate.com/github/eturino/ioredis-del-by-pattern/test_coverage)
 
-[TypeDoc generated docs in here](https://eturino.github.io/ioredis-del-by-pattern)
+[TypeDoc generated docs in here](https://eturino.github.io/ioredis-del-by-pattern.ts)
 
-[Github repo here](https://github.com/eturino/ioredis-del-by-pattern)
+[Github repo here](https://github.com/eturino/ioredis-del-by-pattern.ts)
 
 [ioredis](https://github.com/luin/ioredis) util to delete keys by pattern on redis. Supports batches (pipeline) and lets the user decide to use `del` or `unlink` methods.
 
@@ -26,7 +26,7 @@ import { redisDelByPattern } from "@eturino/ioredis-del-by-pattern";
 
 const deletedKeysCount: number = await redisDelByPattern({
   pattern: "delete-with-this-prefix-*",
-  redis, // ioredis client
+  redis // ioredis client
 });
 ```
 
