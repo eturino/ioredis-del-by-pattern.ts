@@ -21,5 +21,7 @@ describe("travis redis", () => {
     await redis.flushall();
     const afterFlush = await redis.keys("*");
     expect(afterFlush.length).toEqual(0);
+
+    await redis.quit();
   });
 });
