@@ -1,15 +1,8 @@
-import parseBoolean from "@eturino/ts-parse-boolean";
 import RedisClient, { Redis } from "ioredis";
-const DEBUG = parseBoolean(process.env.DEBUG || "false");
 
-let msgs: any[] = []
-
-function debug(...args: any[]): void {
-  msgs = msgs.concat(args)
-  if (DEBUG) {
-    // for some reason console.xxx methods make some tests fail ??????
-    //console.debug(...args);
-  }
+function debug(..._args: any[]): void {
+  // for some reason console.xxx methods make some tests fail ??????
+  //console.debug(...args);
 }
 
 async function close(db: number, redis: Redis): Promise<void> {

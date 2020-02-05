@@ -1,5 +1,5 @@
 import uuidv4 from "uuid/v4";
-import redisDelByPattern, { RedisDeletionMethod } from "../index";
+import { redisDelByPattern, RedisDeletionMethod } from "../index";
 import { buildKeyMap, withRedis } from "./test-utils";
 
 describe("redisDelByPattern()", () => {
@@ -28,7 +28,8 @@ describe("redisDelByPattern()", () => {
                 pattern: `${prefix}-delete-me*`,
                 redis,
                 withPipeline,
-                deletionMethod
+                deletionMethod,
+                enableLog: true
               });
 
               expect(result).toEqual(200);

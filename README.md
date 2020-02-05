@@ -11,13 +11,46 @@
 
 [ioredis](https://github.com/luin/ioredis) util to delete keys by pattern on redis. Supports batches (pipeline) and lets the user decide to use `del` or `unlink` methods.
 
+It uses a `scanStream` in ioredis to gather the matched keys to remove.
+
 ## Installation
 
 `yarn add @eturino/ioredis-del-by-pattern` or `npm install @eturino/ioredis-del-by-pattern`.
 
 ## Usage
 
-TBD.
+The exported function `redisDelByPattern()` returns a promise with the number of keys deleted in total, using the given pattern and redis client.
+
+```typescript
+import { redisDelByPattern } from "@eturino/ioredis-del-by-pattern";
+
+const deletedKeysCount: number = await redisDelByPattern({
+  pattern: "delete-with-this-prefix-*",
+  redis, // ioredis client
+});
+```
+
+It supports the following params:
+
+- `redis`: redis client. **(REQUIRED)**
+- `pattern`: match in the redis scan stream. **(REQUIRED)**
+- `deletionMethod`: determines the usage of `DEL` or `UNLINK` commands (Unlink by default).
+- `withPipeline`: decide to use a pipeline to execute the commands or on each stream event (no pipeline by default).
+- `pipelineBatchLimit`: 100 by default, in effect if `withPipeline` is true.
+- `enableLog`: if true, actions will be logged using the given logFn.
+- `logFn`: function to execute to log events. Defaults to (console.log).
+- `logPrefix`: prefix to the logFn (defaults to `"[REDIS-DEL-BY-PATTERN] "`).
+
+```typescript
+import { redisDelByPattern } from "@eturino/ioredis-del-by-pattern";
+
+const deletedKeysCount: number = await redisDelByPattern({
+  pattern: `${prefix}-delete-me*`,
+  redis, // ioredis client
+  withPipeline: true,
+  deletionMethod: RedisDeletionMethod.unlink
+});
+```
 
 ## Acknowledgements
 
