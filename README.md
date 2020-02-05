@@ -9,7 +9,7 @@
 
 [Github repo here](https://github.com/eturino/ioredis-del-by-pattern)
 
-ioredis util to delete keys by pattern on redis. Supports batches (pipeline) and lets the user decide to use `del` or `unlink` methods.
+[ioredis](https://github.com/luin/ioredis) util to delete keys by pattern on redis. Supports batches (pipeline) and lets the user decide to use `del` or `unlink` methods.
 
 ## Installation
 
