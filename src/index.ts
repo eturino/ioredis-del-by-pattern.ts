@@ -29,7 +29,14 @@ export function redisDelByPattern({
 }: RedisDelByPatternOptions): void {
   const fn = prepareLogFn(enableLog || false, logFn);
   if (inBatches) {
-    batched({ pattern, redis, batchLimit, logFn: fn, logPrefix, deletionMethod });
+    batched({
+      pattern,
+      redis,
+      batchLimit,
+      logFn: fn,
+      logPrefix,
+      deletionMethod
+    });
   } else {
     notBatched({ pattern, redis, logFn: fn, logPrefix, deletionMethod });
   }
