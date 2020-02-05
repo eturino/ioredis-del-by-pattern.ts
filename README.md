@@ -1,7 +1,7 @@
 # `@eturino/ioredis-del-by-pattern`
 
 [![npm version](https://badge.fury.io/js/%40eturino%2Fioredis-del-by-pattern.svg)](https://badge.fury.io/js/%40eturino%2Fioredis-del-by-pattern)
-[![Build Status](https://travis-ci.org/eturino/ioredis-del-by-pattern.svg?branch=master)](https://travis-ci.org/eturino/ioredis-del-by-pattern)
+[![Build Status](https://travis-ci.org/eturino/ioredis-del-by-pattern.ts.svg?branch=master)](https://travis-ci.org/eturino/ioredis-del-by-pattern.ts)
 [![Maintainability](https://api.codeclimate.com/v1/badges/653fcf67de9f3bc22c84/maintainability)](https://codeclimate.com/github/eturino/ioredis-del-by-pattern/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/653fcf67de9f3bc22c84/test_coverage)](https://codeclimate.com/github/eturino/ioredis-del-by-pattern/test_coverage)
 

@@ -2,7 +2,7 @@ import RedisClient, { Redis } from "ioredis";
 
 function debug(..._args: any[]): void {
   // for some reason console.xxx methods make some tests fail ??????
-  //console.debug(...args);
+  // console.debug(...args);
 }
 
 async function close(db: number, redis: Redis): Promise<void> {

@@ -37,7 +37,7 @@ describe("redisDelByPattern()", () => {
               const afterDel = await redis.keys(globalPattern);
               expect(afterDel.length).toEqual(200);
             });
-            expect.assertions(3)
+            expect.assertions(3);
           });
         });
       });
