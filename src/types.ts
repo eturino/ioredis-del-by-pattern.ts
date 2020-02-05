@@ -1,0 +1,30 @@
+import { Redis } from "ioredis";
+
+export enum RedisDeletionMethod {
+  del = "del",
+  unlink = "unlink"
+}
+
+export type LogFn = (...args: any[]) => void;
+
+export type RedisDelByPatternOptions = {
+  pattern: string;
+  redis: Redis;
+  inBatches?: boolean;
+  batchLimit?: number;
+  deletionMethod: RedisDeletionMethod;
+  enableLog?: boolean;
+  logFn?: LogFn;
+  logPrefix?: string;
+};
+
+/**
+ * @ignore
+ */
+export type CommonParams = {
+  pattern: string;
+  redis: Redis;
+  logFn: LogFn;
+  logPrefix: string;
+  deletionMethod: RedisDeletionMethod;
+};

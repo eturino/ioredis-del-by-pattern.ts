@@ -1,7 +1,7 @@
 {
   "extends": ["tslint:latest", "tslint-config-prettier", "tslint-immutable"],
   "rules": {
-    "interface-name": [true, "always-prefix"],
+    "interface-over-type-literal": [false],
     "variable-name": {
       "options": [
         "ban-keywords",

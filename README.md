@@ -19,6 +19,11 @@
 
 TBD.
 
+## Acknowledgements
+
+The batched function implementation is heavily based on the article ["Find and Delete multiple keys matching by a pattern in Redis: The right way
+"](https://medium.com/oyotech/finding-and-deleting-the-redis-keys-by-pattern-the-right-way-123629d7730) by [Ankit Jain](https://github.com/AnkitJainAJ)
+
 ## Development, Commits, versioning and publishing
 
 <details><summary>See documentation for development</summary>
