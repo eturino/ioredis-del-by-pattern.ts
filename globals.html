@@ -39,10 +39,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -84,14 +80,9 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function"><a href="globals.html#buildkeymap" class="tsd-kind-icon">build<wbr>Key<wbr>Map</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#close" class="tsd-kind-icon">close</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#createredisclient" class="tsd-kind-icon">create<wbr>Redis<wbr>Client</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#debug" class="tsd-kind-icon">debug</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#redisdelbypattern" class="tsd-kind-icon">redis<wbr>Del<wbr>ByPattern</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#runwithpipeline" class="tsd-kind-icon">run<wbr>With<wbr>Pipeline</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#runwithoutpipeline" class="tsd-kind-icon">run<wbr>Without<wbr>Pipeline</a></li>
-								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#withredis" class="tsd-kind-icon">with<wbr>Redis</a></li>
 							</ul>
 						</section>
 					</div>
@@ -105,7 +96,7 @@
 					<div class="tsd-signature tsd-kind-icon">Log<wbr>Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/ce1b0c2/src/types.ts#L8">types.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/f547e3d/src/types.ts#L8">types.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -136,7 +127,7 @@
 					<div class="tsd-signature tsd-kind-icon">Redis<wbr>Del<wbr>ByPattern<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>deletionMethod<span class="tsd-signature-symbol">: </span><a href="enums/redisdeletionmethod.html" class="tsd-signature-type">RedisDeletionMethod</a><span class="tsd-signature-symbol">; </span>enableLog<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">; </span>logFn<span class="tsd-signature-symbol">?: </span><a href="globals.html#logfn" class="tsd-signature-type">LogFn</a><span class="tsd-signature-symbol">; </span>logPrefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>pattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>pipelineBatchLimit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>redis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Redis</span><span class="tsd-signature-symbol">; </span>withPipeline<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/ce1b0c2/src/types.ts#L10">types.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/f547e3d/src/types.ts#L10">types.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -173,109 +164,6 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="buildkeymap" class="tsd-anchor"></a>
-					<h3>build<wbr>Key<wbr>Map</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">build<wbr>Key<wbr>Map<span class="tsd-signature-symbol">(</span>count<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, prefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/ce1b0c2/src/__tests__/test-utils.ts#L54">__tests__/test-utils.ts:54</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>count: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>prefix: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{}</span></h4>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter-index-signature">
-									<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="close" class="tsd-anchor"></a>
-					<h3>close</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span>db<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, redis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Redis</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/ce1b0c2/src/__tests__/test-utils.ts#L8">__tests__/test-utils.ts:8</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>db: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>redis: <span class="tsd-signature-type">Redis</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="createredisclient" class="tsd-anchor"></a>
-					<h3>create<wbr>Redis<wbr>Client</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Redis<wbr>Client<span class="tsd-signature-symbol">(</span>db<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Redis</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/ce1b0c2/src/__tests__/test-utils.ts#L21">__tests__/test-utils.ts:21</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>db: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Redis</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="debug" class="tsd-anchor"></a>
-					<h3>debug</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">debug<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>_args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/ce1b0c2/src/__tests__/test-utils.ts#L3">__tests__/test-utils.ts:3</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>_args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="redisdelbypattern" class="tsd-anchor"></a>
 					<h3>redis<wbr>Del<wbr>ByPattern</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -285,7 +173,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/ce1b0c2/src/index.ts#L20">index.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/f547e3d/src/index.ts#L20">index.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -360,7 +248,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/ce1b0c2/src/run-with-pipeline.ts#L21">run-with-pipeline.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/f547e3d/src/run-with-pipeline.ts#L21">run-with-pipeline.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -433,7 +321,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/ce1b0c2/src/run-without-pipeline.ts#L17">run-without-pipeline.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/f547e3d/src/run-without-pipeline.ts#L17">run-without-pipeline.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -491,56 +379,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-					<a name="withredis" class="tsd-anchor"></a>
-					<h3>with<wbr>Redis</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">with<wbr>Redis&lt;T&gt;<span class="tsd-signature-symbol">(</span>db<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>redis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Redis</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eturino/ioredis-del-by-pattern.ts/blob/ce1b0c2/src/__tests__/test-utils.ts#L46">__tests__/test-utils.ts:46</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>db: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>fn: <span class="tsd-signature-symbol">(</span>redis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Redis</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>redis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Redis</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>redis: <span class="tsd-signature-type">Redis</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -564,18 +402,6 @@
 						<a href="globals.html#redisdelbypatternoptions" class="tsd-kind-icon">Redis<wbr>Del<wbr>ByPattern<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#buildkeymap" class="tsd-kind-icon">build<wbr>Key<wbr>Map</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#close" class="tsd-kind-icon">close</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#createredisclient" class="tsd-kind-icon">create<wbr>Redis<wbr>Client</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#debug" class="tsd-kind-icon">debug</a>
-					</li>
-					<li class=" tsd-kind-function">
 						<a href="globals.html#redisdelbypattern" class="tsd-kind-icon">redis<wbr>Del<wbr>ByPattern</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -583,9 +409,6 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#runwithoutpipeline" class="tsd-kind-icon">run<wbr>Without<wbr>Pipeline</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#withredis" class="tsd-kind-icon">with<wbr>Redis</a>
 					</li>
 				</ul>
 			</nav>
