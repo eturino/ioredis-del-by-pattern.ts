@@ -14,7 +14,7 @@ describe("redisDelByPattern()", () => {
       ].forEach(({ deletionMethod, db }) => {
         describe(`using ${deletionMethod}`, () => {
           it("deletes the right ones, keeps the rest", async () => {
-            const prefix = `${uuidv4()}-${deletionMethod}`;
+            const prefix = `${db}--${uuidv4()}-${withPipeline}-${deletionMethod}`;
             const globalPattern = `${prefix}*`;
 
             await withRedis(db, async redis => {
@@ -31,11 +31,9 @@ describe("redisDelByPattern()", () => {
                 deletionMethod,
                 enableLog: true
               });
-
-              expect(result).toEqual(200);
-
               const afterDel = await redis.keys(globalPattern);
               expect(afterDel.length).toEqual(200);
+              expect(result).toEqual(200);
             });
             expect.assertions(3);
           });
