@@ -7,7 +7,7 @@ describe("travis redis", () => {
     const prefix = uuidv4();
     const globalPattern = `${prefix}*`;
 
-    await withRedis(0, async redis => {
+    await withRedis(0, async (redis) => {
       await redis.flushall();
       await redis.mset(buildKeyMap(400, prefix));
 

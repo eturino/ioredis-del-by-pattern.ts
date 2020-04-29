@@ -2,7 +2,7 @@ import { Redis } from "ioredis";
 
 export enum RedisDeletionMethod {
   del = "del",
-  unlink = "unlink"
+  unlink = "unlink",
 }
 
 export type LogFn = (...args: any[]) => void;

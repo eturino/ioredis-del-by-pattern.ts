@@ -24,7 +24,7 @@ export async function runWithPipeline({
   pipelineBatchLimit,
   deletionMethod,
   logFn,
-  logPrefix
+  logPrefix,
 }: CommonParams & { pipelineBatchLimit: number }): Promise<number> {
   return new Promise((resolve, reject) => {
     const stream = redis.scanStream({ match: pattern });
@@ -59,14 +59,12 @@ export async function runWithPipeline({
     stream.on("end", () => {
       pipeline.exec(() => {
         totalCount = totalCount + localKeys.length;
-        logFn(
-          `${logPrefix}batch number ${batchCount} complete. Total keys ${totalCount}`
-        );
+        logFn(`${logPrefix}batch number ${batchCount} complete. Total keys ${totalCount}`);
         resolve(totalCount);
       });
     });
 
-    stream.on("error", err => {
+    stream.on("error", (err) => {
       logFn(`${logPrefix}error`, err);
       reject(err);
     });

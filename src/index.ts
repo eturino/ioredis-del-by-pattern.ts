@@ -25,7 +25,7 @@ export async function redisDelByPattern({
   pipelineBatchLimit = 100,
   deletionMethod = RedisDeletionMethod.unlink,
   logFn,
-  logPrefix = "[REDIS-DEL-BY-PATTERN] "
+  logPrefix = "[REDIS-DEL-BY-PATTERN] ",
 }: RedisDelByPatternOptions): Promise<number> {
   const fn = prepareLogFn(enableLog || false, logFn);
   if (withPipeline) {
@@ -35,7 +35,7 @@ export async function redisDelByPattern({
       pipelineBatchLimit,
       logFn: fn,
       logPrefix,
-      deletionMethod
+      deletionMethod,
     });
   }
 
@@ -44,7 +44,7 @@ export async function redisDelByPattern({
     redis,
     logFn: fn,
     logPrefix,
-    deletionMethod
+    deletionMethod,
   });
 }
 

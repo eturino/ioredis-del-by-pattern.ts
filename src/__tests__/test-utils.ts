@@ -9,7 +9,7 @@ async function close(db: number, redis: Redis): Promise<void> {
   debug(`[REDIS db ${db}] final flushdb...`);
   return redis
     .flushdb()
-    .then(res => debug(`[REDIS db ${db}] flushed! ${res}`))
+    .then((res) => debug(`[REDIS db ${db}] flushed! ${res}`))
     .finally(() => {
       debug(`[REDIS db ${db}] quitting...`);
       return redis.quit().then(() => {
@@ -30,7 +30,7 @@ function createRedisClient(db: number): Promise<Redis> {
           debug(`[REDIS db ${db}] Initial flushdb done`);
           resolve(redis);
         },
-        err => {
+        (err) => {
           console.error(`[REDIS db ${db}] FAILED TO DO INITIAL FLUSHDB`, err);
           reject("failed to ");
         }
@@ -43,18 +43,12 @@ function createRedisClient(db: number): Promise<Redis> {
   });
 }
 
-export async function withRedis<T>(
-  db: number,
-  fn: (redis: Redis) => Promise<T>
-): Promise<T> {
+export async function withRedis<T>(db: number, fn: (redis: Redis) => Promise<T>): Promise<T> {
   const redis = await createRedisClient(db);
   return fn(redis).finally(() => close(db, redis));
 }
 
-export function buildKeyMap(
-  count: number,
-  prefix: string
-): { [key: string]: number } {
+export function buildKeyMap(count: number, prefix: string): { [key: string]: number } {
   const map: { [key: string]: number } = {};
 
   for (let i = 0; i < count; i++) {

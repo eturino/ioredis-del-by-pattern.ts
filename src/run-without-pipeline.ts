@@ -19,7 +19,7 @@ export function runWithoutPipeline({
   redis,
   logFn,
   logPrefix,
-  deletionMethod
+  deletionMethod,
 }: CommonParams): Promise<number> {
   return new Promise((resolve, reject) => {
     const stream = redis.scanStream({ match: pattern });
@@ -42,7 +42,7 @@ export function runWithoutPipeline({
       resolve(totalCount);
     });
 
-    stream.on("error", err => {
+    stream.on("error", (err) => {
       logFn(`${logPrefix}error`, err);
       reject(err);
     });
