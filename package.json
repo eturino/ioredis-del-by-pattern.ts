@@ -84,7 +84,7 @@
     "typedoc": "^0.17.6",
     "typedoc-themes-color": "^0.0.10",
     "typescript": "^3.7.5",
-    "uuid": "^7.0.3"
+    "uuid": "^8.0.0"
   },
   "config": {
     "commitizen": {
