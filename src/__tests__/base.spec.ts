@@ -1,5 +1,5 @@
 // tslint:disable-next-line:no-submodule-imports
-import uuidv4 from "uuid/v4";
+import { v4 as uuidv4 } from "uuid";
 import { buildKeyMap, withRedis } from "./test-utils";
 
 describe("travis redis", () => {
