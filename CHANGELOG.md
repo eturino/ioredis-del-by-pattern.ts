@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v1.0.2...v1.0.3) (2020-05-12)
+
+
+### Bug Fixes
+
+* target ES2017 instead of esnext for module, and ES2015 for main ([b2dd4df](https://github.com/eturino/ioredis-del-by-pattern.ts/commit/b2dd4dfc88a3585cf5a01b4ff58b8805315c2cd3))
+
 ### [1.0.2](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v1.0.1...v1.0.2) (2020-04-29)
 
 ### [1.0.1](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v1.0.0...v1.0.1) (2020-02-06)
