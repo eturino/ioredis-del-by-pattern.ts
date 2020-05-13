@@ -412,9 +412,9 @@
     find-up "^4.0.0"
 
 "@eturino/ts-parse-boolean@^1.1.0":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@eturino/ts-parse-boolean/-/ts-parse-boolean-1.1.1.tgz#353347590605738fa1c2598e584652cee4da1fb8"
-  integrity sha512-2PNACKd4aCpoAMl77dQkE/v5Bzm5WA0iyOdMBnpBY83Jl0LB7ivzBJ1MtWPXortXLEmsOaLd1C+2KNVzZOS49Q==
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@eturino/ts-parse-boolean/-/ts-parse-boolean-1.1.2.tgz#b679a030da968f956ff9fc05d02f7259ebed2671"
+  integrity sha512-GEMZMmscWi3tk5Sv1Zc9+T3zEhu/RNOk54yEJZFQCwi+qoeTa1RLMyJA8Rhm4o50EuRi0E4rw3UrYM+DhpLfeA==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.0.0"
