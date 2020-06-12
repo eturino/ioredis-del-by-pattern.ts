@@ -708,9 +708,9 @@
     rxjs "^6.4.0"
 
 "@types/ioredis@^4.14.6":
-  version "4.16.1"
-  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-4.16.1.tgz#157092208df0031fd83cf657e722248dc563d451"
-  integrity sha512-3O4gHSxQ4C0AhJVHIW4TFYsv0OqORLmiu5mgceciJrPct/ToTwRehroLU3vw5evzQgemdKx05dU6nKs5bCN1bQ==
+  version "4.16.5"
+  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-4.16.5.tgz#861384f39974a9d1b70bbad48e967e11fdb591a5"
+  integrity sha512-jU60KcKiyFfNIz+rXbqm1tx+FqKOg8LnlSH+3o+j92IP1SQ2U9a2OZn/UkjzPoWgn0K7DtorraDsdpFgLyc9FQ==
   dependencies:
     "@types/node" "*"
 
