@@ -712,9 +712,9 @@
     rxjs "^6.4.0"
 
 "@types/ioredis@^4.14.6":
-  version "4.19.3"
-  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-4.19.3.tgz#577548fbd03200ef92a81fd745899316c6f28917"
-  integrity sha512-r9rXLYeZVmvTf0nKDmFYrpBeVzK5B6jgE2ncfkzPOAuRM5RTzKnYdW2wVn+ZONMnFxV6H4R3NrCdRdC3CL4nFA==
+  version "4.26.1"
+  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-4.26.1.tgz#761f1812c48a3ecfbd9d9ecd35c49849f8693e2e"
+  integrity sha512-k9f+bda6y0ZNrwUMNYI9mqIPqjPZ4Jqc+jTRTUyhFz8aD8cHQBk+uenTKCZj9RhdfrU4sSqrot5sn5LqkAHODw==
   dependencies:
     "@types/node" "*"
 
