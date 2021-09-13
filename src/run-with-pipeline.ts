@@ -24,6 +24,7 @@ export async function runWithPipeline({
   pipelineBatchLimit,
   deletionMethod,
   logFn,
+  logWarnFn,
   logPrefix,
 }: CommonParams & { pipelineBatchLimit: number }): Promise<number> {
   return new Promise((resolve, reject) => {
@@ -34,13 +35,17 @@ export async function runWithPipeline({
     let totalCount = 0;
 
     stream.on("data", (resultKeys: string[]) => {
-      logFn(`${logPrefix}Data Received`, resultKeys.length, localKeys.length);
-      if (deletionMethod === RedisDeletionMethod.unlink) {
-        // missing in the typings
-        // @ts-ignore
-        pipeline.unlink(...resultKeys);
+      if (resultKeys.length > 0) {
+        logFn(`${logPrefix}Data Received (${resultKeys.length}, keys in batch: ${localKeys.length} so far)`);
+
+        if (deletionMethod === RedisDeletionMethod.unlink) {
+          pipeline.unlink(...resultKeys);
+        } else {
+          pipeline.del(...resultKeys);
+        }
       } else {
-        pipeline.del(...resultKeys);
+        logWarnFn(`${logPrefix} no keys received (keys in batch: ${localKeys.length} so far). Skipping...`);
+        return;
       }
 
       localKeys = localKeys.concat(resultKeys);

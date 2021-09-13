@@ -3,6 +3,7 @@ build
 test
 src/**.js
 .idea/*
+.history
 yarn-error.log
 
 coverage

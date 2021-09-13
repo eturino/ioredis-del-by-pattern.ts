@@ -21,6 +21,7 @@
     ".gitiginore",
     ".npmignore",
     ".prettierignore",
+    ".eslintrc",
     ".prettierrc.json",
     ".travis.yml",
     ".vscode/*",

@@ -39,6 +39,7 @@ It supports the following params:
 - `pipelineBatchLimit`: 100 by default, in effect if `withPipeline` is true.
 - `enableLog`: if true, actions will be logged using the given logFn.
 - `logFn`: function to execute to log events. Defaults to (console.log).
+- `logWarnFn`: function to execute to log events for `warn`. Defaults to (console.warn).
 - `logPrefix`: prefix to the logFn (defaults to `"[REDIS-DEL-BY-PATTERN] "`).
 
 ```typescript

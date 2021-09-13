@@ -15,6 +15,7 @@ export { LogFn, RedisDelByPatternOptions, RedisDeletionMethod } from "./types";
  * @param pipelineBatchLimit 100 by default, in effect if `withPipeline` is true
  * @param enableLog if true, actions will be logged using the given logFn
  * @param logFn function to execute to log events. Defaults to (console.log)
+ * @param logWarnFn function to execute to log events of type `warn`. Defaults to (console.warn)
  * @param logPrefix prefix to the logFn (defaults to `"[REDIS-DEL-BY-PATTERN] "`)
  */
 export async function redisDelByPattern({
@@ -25,15 +26,19 @@ export async function redisDelByPattern({
   pipelineBatchLimit = 100,
   deletionMethod = RedisDeletionMethod.unlink,
   logFn,
+  logWarnFn,
   logPrefix = "[REDIS-DEL-BY-PATTERN] ",
 }: RedisDelByPatternOptions): Promise<number> {
   const fn = prepareLogFn(enableLog || false, logFn);
+  const warnFn = prepareLogFn(enableLog || false, logWarnFn);
+
   if (withPipeline) {
     return runWithPipeline({
       pattern,
       redis,
       pipelineBatchLimit,
       logFn: fn,
+      logWarnFn: warnFn,
       logPrefix,
       deletionMethod,
     });
@@ -43,6 +48,7 @@ export async function redisDelByPattern({
     pattern,
     redis,
     logFn: fn,
+    logWarnFn: warnFn,
     logPrefix,
     deletionMethod,
   });

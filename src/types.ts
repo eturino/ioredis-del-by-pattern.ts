@@ -15,6 +15,7 @@ export type RedisDelByPatternOptions = {
   deletionMethod: RedisDeletionMethod;
   enableLog?: boolean;
   logFn?: LogFn;
+  logWarnFn?: LogFn;
   logPrefix?: string;
 };
 
@@ -25,6 +26,7 @@ export type CommonParams = {
   pattern: string;
   redis: Redis;
   logFn: LogFn;
+  logWarnFn: LogFn;
   logPrefix: string;
   deletionMethod: RedisDeletionMethod;
 };

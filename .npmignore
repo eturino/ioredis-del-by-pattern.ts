@@ -3,6 +3,7 @@ test
 tsconfig.json
 tsconfig.module.json
 tslint.json
+.eslint*
 .travis.yml
 .github
 .prettierignore
