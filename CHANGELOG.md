@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v1.0.4...v1.1.0) (2021-09-13)
+
+
+### Features
+
+* logWarnFn included. Warns when a batch has no keys ([97fafc5](https://github.com/eturino/ioredis-del-by-pattern.ts/commit/97fafc53d3f1b38bd5549ceb8d7f9741d5052bfb))
+
 ### [1.0.4](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v1.0.3...v1.0.4) (2021-01-26)
 
 ### [1.0.3](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v1.0.2...v1.0.3) (2020-05-12)
