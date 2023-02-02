@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v1.1.0...v2.0.0) (2023-02-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* ioredis v5.3 required now
+
+### Features
+
+* upgrading ioredis dependency to 5.3.x, also upgrading dev deps ([c58648e](https://github.com/eturino/ioredis-del-by-pattern.ts/commit/c58648eef75773b3c1ac1ae6c6f26db411cce886))
+
 ## [1.1.0](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v1.0.4...v1.1.0) (2021-09-13)
 
 
