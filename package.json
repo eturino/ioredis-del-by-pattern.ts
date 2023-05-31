@@ -1,6 +1,6 @@
 {
   "name": "@eturino/ioredis-del-by-pattern",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Eduardo Turiño <eturino@eturino.com>",
   "description": "ioredis util to delete keys by pattern on redis. Supports batches (pipeline) and lets the user decide to use `del` or `unlink` methods.",
   "main": "build/main/index.js",
