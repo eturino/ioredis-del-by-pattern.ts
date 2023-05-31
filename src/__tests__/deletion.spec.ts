@@ -44,12 +44,11 @@ describe("redisDelByPattern()", () => {
             const globalPattern = `${prefix}*`;
 
             await withRedis(db, async (redis) => {
-
               await redis.mset(buildKeyMap(200, `${prefix}-keep-me`));
               await redis.mset(buildKeyMap(200, `${prefix}-and-me`));
 
-              const logFn: LogFn = jest.fn(prepareLogFn(false))
-              const logWarnFn: LogFn = jest.fn(prepareLogWarningFn(false))
+              const logFn: LogFn = jest.fn(prepareLogFn(false));
+              const logWarnFn: LogFn = jest.fn(prepareLogWarningFn(false));
 
               const allKeys = await redis.keys(globalPattern);
               expect(allKeys.length).toEqual(400);
@@ -61,17 +60,17 @@ describe("redisDelByPattern()", () => {
                 deletionMethod,
                 enableLog: true,
                 logFn,
-                logWarnFn
+                logWarnFn,
               });
               const afterDel = await redis.keys(globalPattern);
               expect(afterDel.length).toEqual(400);
               expect(result).toEqual(0);
 
-              expect(logFn).toBeCalledTimes(1)
+              expect(logFn).toBeCalledTimes(1);
               if (withPipeline) {
-                expect(logWarnFn).toBeCalled()
+                expect(logWarnFn).toBeCalled();
               } else {
-                expect(logWarnFn).not.toBeCalled()
+                expect(logWarnFn).not.toBeCalled();
               }
             });
             expect.assertions(5);
