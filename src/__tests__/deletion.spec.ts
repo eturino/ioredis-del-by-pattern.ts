@@ -16,7 +16,7 @@ describe("redisDelByPattern()", () => {
       ];
 
       for (const { deletionMethod, db } of configs) {
-        describe(`using ${deletionMethod} (${withPipeline ? 'with pipeline' : 'without pipeline'})`, () => {
+        describe(`using ${deletionMethod} (${withPipeline ? "with pipeline" : "without pipeline"})`, () => {
           it("deletes the right ones, keeps the rest", async () => {
             const prefix = `${db}--${uuidv4()}-${withPipeline}-${deletionMethod}`;
             const globalPattern = `${prefix}*`;
