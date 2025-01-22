@@ -1,4 +1,4 @@
-import { CommonParams, RedisDeletionMethod } from "./types";
+import { type CommonParams, RedisDeletionMethod } from "./types";
 
 /**
  * Uses a scan stream and a pipeline to send UNLINK or DEL commands in batches

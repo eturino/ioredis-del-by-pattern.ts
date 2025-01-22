@@ -1,0 +1,52 @@
+name: CI Master
+on:
+  push:
+    branches: [master, main]
+
+jobs:
+  test_and_publish:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+        redis-version: [6, 7]
+
+    permissions:
+      contents: write
+      packages: write # allow GITHUB_TOKEN to publish packages
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Start Redis
+        uses: supercharge/redis-github-action@1.8.0
+        with:
+          redis-version: ${{ matrix.redis-version }}
+
+      - run: npm install
+      - run: npm run check
+      - run: npm run test
+
+      - uses: nickcharlton/diff-check@main
+        with:
+          command: npm run build
+          message: "Please make sure to run 'npm run fix && npm run build' before committing."
+
+      - name: Run release-please
+        id: release_please
+        uses: googleapis/release-please-action@v4
+        with:
+          release-type: node
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: JS-DevTools/npm-publish@v3
+        id: publish
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+      - if: ${{ steps.publish.outputs.type }}
+        run: echo "Version changed!"

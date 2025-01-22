@@ -1,11 +1,11 @@
-import { Redis } from "ioredis";
+import type { Redis } from "ioredis";
 
 export enum RedisDeletionMethod {
   del = "del",
   unlink = "unlink",
 }
 
-export type LogFn = (...args: any[]) => void;
+export type LogFn = (...args: unknown[]) => void;
 
 export type RedisDelByPatternOptions = {
   pattern: string;

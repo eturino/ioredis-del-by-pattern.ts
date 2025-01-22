@@ -1,0 +1,24 @@
+{
+  "name": "Node.js & TypeScript with Redis",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "biomejs.biome",
+        "idered.npm",
+        "talljack.vscode-package-version",
+        "vitest.explorer",
+        "streetsidesoftware.code-spell-checker",
+        "EditorConfig.EditorConfig",
+        "github.vscode-github-actions",
+        "saoudrizwan.claude-dev"
+      ]
+    }
+  },
+  "forwardPorts": [
+    6379
+  ],
+  "postCreateCommand": "redis-server --daemonize yes"
+}

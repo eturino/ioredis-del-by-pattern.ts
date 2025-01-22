@@ -1,13 +1,12 @@
 import { prepareLogFn } from "./prepare-log-fn";
 import { runWithPipeline } from "./run-with-pipeline";
 import { runWithoutPipeline } from "./run-without-pipeline";
-import { RedisDelByPatternOptions, RedisDeletionMethod } from "./types";
+import type { RedisDelByPatternOptions } from "./types";
+import { RedisDeletionMethod } from "./types";
 
 export { LogFn, RedisDelByPatternOptions, RedisDeletionMethod } from "./types";
 
 /**
- *
- *
  * @param redis redis client
  * @param pattern match in the redis scan stream
  * @param deletionMethod determines the usage of DEL or UNLINK commands (Unlink by default)

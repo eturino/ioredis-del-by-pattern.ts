@@ -1,4 +1,4 @@
-import RedisClient, { Redis } from "ioredis";
+import RedisClient, { type Redis } from "ioredis";
 
 async function close(redis: Redis): Promise<void> {
   await redis.flushdb();
@@ -17,7 +17,7 @@ function createRedisClient(db: number): Promise<Redis> {
         },
         (err) => {
           reject(err);
-        }
+        },
       );
     });
 

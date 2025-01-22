@@ -1,18 +1,21 @@
 import { v4 as uuidv4 } from "uuid";
-import { LogFn, redisDelByPattern, RedisDeletionMethod } from "../index";
+import { describe, expect, it, vi } from "vitest";
+import { type LogFn, RedisDeletionMethod, redisDelByPattern } from "..";
 import { prepareLogFn, prepareLogWarningFn } from "../prepare-log-fn";
 import { buildKeyMap, withRedis } from "./test-utils";
 
 describe("redisDelByPattern()", () => {
-  [true, false].forEach((withPipeline) => {
+  for (const withPipeline of [true, false]) {
     describe(`redisDelByPattern({ withPipeline: ${withPipeline})`, () => {
-      [
+      const configs = [
         {
           deletionMethod: RedisDeletionMethod.unlink,
           db: withPipeline ? 1 : 3,
         },
         { deletionMethod: RedisDeletionMethod.del, db: withPipeline ? 2 : 4 },
-      ].forEach(({ deletionMethod, db }) => {
+      ];
+
+      for (const { deletionMethod, db } of configs) {
         describe(`using ${deletionMethod}`, () => {
           it("deletes the right ones, keeps the rest", async () => {
             const prefix = `${db}--${uuidv4()}-${withPipeline}-${deletionMethod}`;
@@ -47,8 +50,8 @@ describe("redisDelByPattern()", () => {
               await redis.mset(buildKeyMap(200, `${prefix}-keep-me`));
               await redis.mset(buildKeyMap(200, `${prefix}-and-me`));
 
-              const logFn: LogFn = jest.fn(prepareLogFn(false));
-              const logWarnFn: LogFn = jest.fn(prepareLogWarningFn(false));
+              const logFn: LogFn = vi.fn(prepareLogFn(false));
+              const logWarnFn: LogFn = vi.fn(prepareLogWarningFn(false));
 
               const allKeys = await redis.keys(globalPattern);
               expect(allKeys.length).toEqual(400);
@@ -76,7 +79,7 @@ describe("redisDelByPattern()", () => {
             expect.assertions(5);
           });
         });
-      });
+      }
     });
-  });
+  }
 });
