@@ -8,14 +8,11 @@ const randomString = buildRandomString();
 describe("redisDelByPattern()", () => {
   for (const withPipeline of [true, false]) {
     describe(`redisDelByPattern({ withPipeline: ${withPipeline})`, () => {
-      const configs = [
-        { deletionMethod: RedisDeletionMethod.unlink },
-        { deletionMethod: RedisDeletionMethod.del },
-      ];
+      const configs = [{ deletionMethod: RedisDeletionMethod.unlink }, { deletionMethod: RedisDeletionMethod.del }];
 
       for (const { deletionMethod } of configs) {
         describe(`using ${deletionMethod} (${withPipeline ? "with pipeline" : "without pipeline"})`, () => {
-          const suitePrefix = `${randomString}|${deletionMethod}|${withPipeline}`
+          const suitePrefix = `${randomString}|${deletionMethod}|${withPipeline}`;
           it("deletes the right ones, keeps the rest", async () => {
             await withRedis(0, async (redis) => {
               const prefix = `${suitePrefix}|DELETES|`;
