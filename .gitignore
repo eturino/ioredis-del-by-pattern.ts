@@ -9,3 +9,4 @@
 dist
 node_modules
 dump.rdb
+package-lock.json
