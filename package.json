@@ -3,9 +3,12 @@
   "version": "3.0.0",
   "author": "Eduardo Turiño <eturino@eturino.com>",
   "description": "ioredis util to delete keys by pattern on redis. Supports batches (pipeline) and lets the user decide to use `del` or `unlink` methods.",
-  "main": "build/main/index.js",
-  "typings": "build/main/index.d.ts",
-  "module": "build/module/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "repository": "https://github.com/eturino/ioredis-del-by-pattern.ts",
   "homepage": "https://eturino.github.io/ioredis-del-by-pattern.ts/",
   "bugs": "https://github.com/eturino/ioredis-del-by-pattern.ts/issues",
