@@ -32,12 +32,14 @@ jobs:
       - run: npm run test
 
       - uses: nickcharlton/diff-check@main
+        if: ${{ matrix.node-version == '22.x' && matrix.redis-version == '7' }}
         with:
           command: npm run build
           message: "Please make sure to run 'npm run fix && npm run build' before committing."
 
       - name: Run release-please
         id: release_please
+        if: ${{ matrix.node-version == '22.x' && matrix.redis-version == '7' }}
         uses: googleapis/release-please-action@v4
         with:
           release-type: node
@@ -45,8 +47,9 @@ jobs:
 
       - uses: JS-DevTools/npm-publish@v3
         id: publish
+        if: ${{ matrix.node-version == '22.x' && matrix.redis-version == '7' }}
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
-      - if: ${{ steps.publish.outputs.type }}
+      - if: ${{ steps.publish.outputs.type && matrix.node-version == '22.x' && matrix.redis-version == '7' }}
         run: echo "Version changed!"
