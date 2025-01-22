@@ -27,6 +27,10 @@ function createRedisClient(db: number): Promise<Redis> {
   });
 }
 
+export function buildRandomString(): string {
+  return Array.from({length: 10}, () => String.fromCharCode(Math.floor(Math.random() * 26) + 97)).join('');
+}
+
 export async function withRedis<T>(db: number, fn: (redis: Redis) => Promise<T>): Promise<T> {
   const redis = await createRedisClient(db);
   const res = await fn(redis);

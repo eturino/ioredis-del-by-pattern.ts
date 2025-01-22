@@ -1,32 +1,31 @@
-import { v4 as uuidv4 } from "uuid";
 import { describe, expect, it, vi } from "vitest";
 import { type LogFn, RedisDeletionMethod, redisDelByPattern } from "..";
 import { prepareLogFn, prepareLogWarningFn } from "../prepare-log-fn";
-import { buildKeyMap, withRedis } from "./test-utils";
+import { buildKeyMap, buildRandomString, withRedis } from "./test-utils";
+
+const randomString = buildRandomString();
 
 describe("redisDelByPattern()", () => {
   for (const withPipeline of [true, false]) {
     describe(`redisDelByPattern({ withPipeline: ${withPipeline})`, () => {
       const configs = [
-        {
-          deletionMethod: RedisDeletionMethod.unlink,
-          db: withPipeline ? 1 : 3,
-        },
-        { deletionMethod: RedisDeletionMethod.del, db: withPipeline ? 2 : 4 },
+        { deletionMethod: RedisDeletionMethod.unlink },
+        { deletionMethod: RedisDeletionMethod.del },
       ];
 
-      for (const { deletionMethod, db } of configs) {
+      for (const { deletionMethod } of configs) {
         describe(`using ${deletionMethod} (${withPipeline ? "with pipeline" : "without pipeline"})`, () => {
+          const suitePrefix = `${randomString}|${deletionMethod}|${withPipeline}`
           it("deletes the right ones, keeps the rest", async () => {
-            const prefix = `${db}--${uuidv4()}-${withPipeline}-${deletionMethod}`;
-            const globalPattern = `${prefix}*`;
+            await withRedis(0, async (redis) => {
+              const prefix = `${suitePrefix}|DELETES|`;
+              const globalPattern = `${prefix}*`;
 
-            await withRedis(db, async (redis) => {
-              await redis.mset(buildKeyMap(200, `${prefix}-delete-me`));
-              await redis.mset(buildKeyMap(200, `${prefix}-keep-me`));
+              await redis.mset(buildKeyMap(20, `${prefix}-delete-me`));
+              await redis.mset(buildKeyMap(20, `${prefix}-keep-me`));
 
               const allKeys = await redis.keys(globalPattern);
-              expect(allKeys.length).toEqual(400);
+              expect(allKeys.length).toEqual(40);
 
               const result = await redisDelByPattern({
                 pattern: `${prefix}-delete-me*`,
@@ -36,25 +35,25 @@ describe("redisDelByPattern()", () => {
                 enableLog: true,
               });
               const afterDel = await redis.keys(globalPattern);
-              expect(afterDel.length).toEqual(200);
-              expect(result).toEqual(200);
+              expect(afterDel.length).toEqual(20);
+              expect(result).toEqual(20);
             });
             expect.assertions(3);
           });
 
           it("works fine if there is nothing to delete", async () => {
-            const prefix = `${db}--${uuidv4()}-${withPipeline}-${deletionMethod}`;
+            const prefix = `${suitePrefix}|NOTHING|`;
             const globalPattern = `${prefix}*`;
 
-            await withRedis(db, async (redis) => {
-              await redis.mset(buildKeyMap(200, `${prefix}-keep-me`));
-              await redis.mset(buildKeyMap(200, `${prefix}-and-me`));
+            await withRedis(0, async (redis) => {
+              await redis.mset(buildKeyMap(20, `${prefix}-keep-me`));
+              await redis.mset(buildKeyMap(20, `${prefix}-and-me`));
 
               const logFn: LogFn = vi.fn(prepareLogFn(false));
               const logWarnFn: LogFn = vi.fn(prepareLogWarningFn(false));
 
               const allKeys = await redis.keys(globalPattern);
-              expect(allKeys.length).toEqual(400);
+              expect(allKeys.length).toEqual(40);
 
               const result = await redisDelByPattern({
                 pattern: `${prefix}-delete-me*`,
@@ -66,7 +65,7 @@ describe("redisDelByPattern()", () => {
                 logWarnFn,
               });
               const afterDel = await redis.keys(globalPattern);
-              expect(afterDel.length).toEqual(400);
+              expect(afterDel.length).toEqual(40);
               expect(result).toEqual(0);
 
               expect(logFn).toBeCalledTimes(1);

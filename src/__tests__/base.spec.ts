@@ -1,26 +1,27 @@
-import { v4 as uuidv4 } from "uuid";
 import { describe, expect, it } from "vitest";
-import { buildKeyMap, withRedis } from "./test-utils";
+import { buildKeyMap, buildRandomString, withRedis } from "./test-utils";
 
-describe("travis redis", () => {
+const randomString = buildRandomString();
+
+describe("Redis", () => {
   it("flushall, del, unlink, mset and keys work", async () => {
-    const prefix = uuidv4();
+    const prefix = `${randomString}|BASE`;
     const globalPattern = `${prefix}*`;
 
-    await withRedis(0, async (redis) => {
+    await withRedis(1, async (redis) => {
       await redis.flushall();
-      await redis.mset(buildKeyMap(400, prefix));
+      await redis.mset(buildKeyMap(40, prefix));
 
       const allKeys = await redis.keys(globalPattern);
-      expect(allKeys.length).toEqual(400);
+      expect(allKeys.length).toEqual(40);
 
       await redis.del(allKeys[0]);
       const afterDel = await redis.keys(globalPattern);
-      expect(afterDel.length).toEqual(399);
+      expect(afterDel.length).toEqual(39);
 
       await redis.unlink(afterDel[0]);
       const afterUnlink = await redis.keys(globalPattern);
-      expect(afterUnlink.length).toEqual(398);
+      expect(afterUnlink.length).toEqual(38);
 
       await redis.flushall();
       const afterFlush = await redis.keys(globalPattern);

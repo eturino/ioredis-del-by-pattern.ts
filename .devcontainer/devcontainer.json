@@ -13,7 +13,8 @@
         "streetsidesoftware.code-spell-checker",
         "EditorConfig.EditorConfig",
         "github.vscode-github-actions",
-        "saoudrizwan.claude-dev"
+        "saoudrizwan.claude-dev",
+        "phind.phind"
       ]
     }
   },
