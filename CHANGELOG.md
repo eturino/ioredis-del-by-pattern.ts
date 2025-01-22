@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v2.0.1...v3.0.0) (2025-01-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changing the dependencies (ioredis now a peerDependency), and requiring node 20+
+
+### Features
+
+* change in dependencies ([#205](https://github.com/eturino/ioredis-del-by-pattern.ts/issues/205)) ([daee7d4](https://github.com/eturino/ioredis-del-by-pattern.ts/commit/daee7d460f1f00ed1fe4ec5389fa13a127f4e070))
+
 ### [2.0.1](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v2.0.0...v2.0.1) (2023-05-31)
 
 ## [2.0.0](https://github.com/eturino/ioredis-del-by-pattern.ts/compare/v1.1.0...v2.0.0) (2023-02-02)
