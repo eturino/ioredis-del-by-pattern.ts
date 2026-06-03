@@ -3,12 +3,14 @@ on:
   push:
     branches: [master, main]
 
+permissions:
+  contents: read
+
 jobs:
   test_and_publish:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20.x, 22.x]
         redis-version: [6, 7]
 
     permissions:
@@ -17,13 +19,10 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
       - name: Start Redis
-        uses: supercharge/redis-github-action@1.8.0
+        uses: supercharge/redis-github-action@ea9b21c6ecece47bd99595c532e481390ea0f044 # 1.8.0
         with:
           redis-version: ${{ matrix.redis-version }}
 
@@ -31,25 +30,25 @@ jobs:
       - run: npm run check
       - run: npm run test
 
-      - uses: nickcharlton/diff-check@main
-        if: ${{ matrix.node-version == '22.x' && matrix.redis-version == '7' }}
+      - uses: nickcharlton/diff-check@9fa7ac2bd275b9ec60f13dbcef1b90cfaadc1872 # main
+        if: ${{ matrix.redis-version == '7' }}
         with:
           command: npm run build
           message: "Please make sure to run 'npm run fix && npm run build' before committing."
 
       - name: Run release-please
         id: release_please
-        if: ${{ matrix.node-version == '22.x' && matrix.redis-version == '7' }}
-        uses: googleapis/release-please-action@v4
+        if: ${{ matrix.redis-version == '7' }}
+        uses: googleapis/release-please-action@5c625bfb5d1ff62eadeeb3772007f7f66fdcf071 # v4
         with:
           release-type: node
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: JS-DevTools/npm-publish@v3
+      - uses: JS-DevTools/npm-publish@19c28f1ef146469e409470805ea4279d47c3d35c # v3
         id: publish
-        if: ${{ matrix.node-version == '22.x' && matrix.redis-version == '7' }}
+        if: ${{ matrix.redis-version == '7' }}
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
-      - if: ${{ steps.publish.outputs.type && matrix.node-version == '22.x' && matrix.redis-version == '7' }}
+      - if: ${{ steps.publish.outputs.type && matrix.redis-version == '7' }}
         run: echo "Version changed!"
