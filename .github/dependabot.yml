@@ -1,6 +1,8 @@
 version: 2
+# Version PRs off (limit 0): the agents' weekly deps pass upgrades and merges. Security updates stay on.
 updates:
   - package-ecosystem: "npm"
+    open-pull-requests-limit: 0
     directory: "/"
     schedule:
       interval: weekly
